@@ -6,8 +6,7 @@ import Error from "./Error"
 import Form from "./Form"
 import Header from "./Header"
 import Show from "./Show"
-import Status from "./Status"
-import useVisualMode from "hooks/useVisualMode"
+import useVisualMode from "../../hooks/useVisualMode"
 
 
 export default function Appointment(props) {
@@ -22,13 +21,6 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
-  function save(name, interviewer) {
-    const interview = {
-      student: name,
-      interviewer
-    };
-  }
 
   let interviewers=[]
 
