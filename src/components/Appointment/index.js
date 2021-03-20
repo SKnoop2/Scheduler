@@ -42,7 +42,9 @@ export default function Appointment(props) {
     transition(DELETING, true);
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
-    .catch(error => transition(ERROR_DELETE, true))
+    .catch(error => {
+      console.log("mode: ", mode)
+      transition(ERROR_DELETE, true)})
   };
 
   function onConfirm() {
@@ -53,6 +55,9 @@ export default function Appointment(props) {
     transition(EDIT)
   }
 
+  function onClose() {
+    back(SHOW);
+  }
 
   console.log("props in index: ", props)
 
@@ -87,7 +92,7 @@ export default function Appointment(props) {
           onSave={onSave} 
         />
       )}
-      {mode === ERROR_DELETE && <Error message="Could not delete your appointment. Please try again." />}
-      {mode === ERROR_SAVE && <Error message="Could not save your appointment. Please try again." />}
+      {mode === ERROR_DELETE && <Error message="Could not delete your appointment. Please try again." onClose={onClose}/>}
+      {mode === ERROR_SAVE && <Error message="Could not save your appointment. Please try again." onClose={onClose}/>}
   </article>)
 }
