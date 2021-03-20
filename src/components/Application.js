@@ -6,7 +6,7 @@ import DayList from "components/DayList";
 import Appointment from "components/Appointment/index";
 import { getAppointmentsForDay, getInterview, getInterviewersforDay } from "helpers/selectors"
 
-export default function Application() {
+export default function Application(props) {
  
   const [state, setState] = useState({
     day: "Monday",
@@ -41,7 +41,6 @@ export default function Application() {
         const appointments = {...state.appointments, [id]: appointment};
         setState({...state, appointments });
       })
-      .catch(err => console.log(err.message))
   }
 
   function cancelInterview (id) {
@@ -53,7 +52,6 @@ export default function Application() {
         const appointments = {...state.appointments, [id]: appointment};
         setState({...state, appointments})
       })
-      .catch(err => console.log(err.message))
   }
   
   //helper functions

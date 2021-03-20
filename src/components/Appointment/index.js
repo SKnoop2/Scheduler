@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.scss";
 import Confirm from "./Confirm";
 import Empty from "./Empty";
+import Error from "./Error";
 import Form from "./Form";
 import Header from "./Header";
 import Show from "./Show";
@@ -15,6 +16,8 @@ const SAVING = "SAVING";
 const DELETING = "DELETING";
 const CONFIRM = "CONFIRM";
 const EDIT = "EDIT";
+const ERROR_SAVE = "ERROR_SAVE"
+const ERROR_DELETE = "ERROR_DELETE"
 
 export default function Appointment(props) {
 
@@ -29,15 +32,17 @@ export default function Appointment(props) {
     transition(SAVING);
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
-    .catch(err => console.log(err.message));
+    // add true below to replace existing mode so to skip confirmation screen & go back to SHOW
+    .catch(error => transition(ERROR_SAVE, true));
   };
 
   // flow of events that happen upon hiting delete button
   function onDelete() {
+    
+    transition(DELETING, true);
     props.cancelInterview(props.id)
-    .then(transition(DELETING))
     .then(() => transition(EMPTY))
-    .catch(err => console.log(err.message))
+    .catch(error => transition(ERROR_DELETE, true))
   };
 
   function onConfirm() {
@@ -82,5 +87,7 @@ export default function Appointment(props) {
           onSave={onSave} 
         />
       )}
+      {mode === ERROR_DELETE && <Error message="Could not delete your appointment. Please try again." />}
+      {mode === ERROR_SAVE && <Error message="Could not save your appointment. Please try again." />}
   </article>)
 }
