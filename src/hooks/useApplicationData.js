@@ -11,9 +11,7 @@ export default function useApplicationData() {
     interviewers: {},
   });
   
-  const setDay = (day) => {
-    setState({...state, day})
-  }
+  const setDay = day => setState({...state, day});
 
   useEffect(() => {
     Promise.all([
@@ -53,6 +51,40 @@ export default function useApplicationData() {
         setState({...state, appointments})
       })
   }
+
+  // count unbooked appointments
+  const availableSpots = function(day, appointments) {
+    let count = 0;
+    for (const id of day.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        count++
+      }
+    }
+    return count;
+  }
+
+  const updatedSpotsArr = (days, appointments) => {
+    const newArray = days.map((day) => ({
+      ...day, 
+      spots: availableSpots(day, appointments) 
+    }))
+    return newArray;
+  };
+
+  //starting state
+  console.log("\n*** Initial Days State\n", state.days);
+
+  const days = updatedSpotsArr (state.days, state.appointments);
+  console.log("\n*** Updated Days State\n", days);
   
-  return {state, setDay, bookInterview, cancelInterview}
+  // this will remain unchanged
+  console.log("\n*** Final Days State\n", state.days);
+  
+  return {
+    state, 
+    setDay, 
+    bookInterview, 
+    cancelInterview
+  }
 }

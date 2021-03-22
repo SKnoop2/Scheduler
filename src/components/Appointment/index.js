@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.scss";
 import Confirm from "./Confirm";
 import Empty from "./Empty";
 import Error from "./Error";
@@ -9,15 +8,17 @@ import Show from "./Show";
 import Status from "./Status";
 import useVisualMode from "hooks/useVisualMode";
 
-const EMPTY = "EMPTY";
-const SHOW = "SHOW";
-const CREATE = "CREATE";
-const SAVING = "SAVING";
-const DELETING = "DELETING";
+import "./styles.scss";
+
 const CONFIRM = "CONFIRM";
+const CREATE = "CREATE";
+const DELETING = "DELETING";
 const EDIT = "EDIT";
-const ERROR_SAVE = "ERROR_SAVE"
+const EMPTY = "EMPTY";
 const ERROR_DELETE = "ERROR_DELETE"
+const ERROR_SAVE = "ERROR_SAVE"
+const SAVING = "SAVING";
+const SHOW = "SHOW";
 
 export default function Appointment(props) {
 
@@ -32,7 +33,7 @@ export default function Appointment(props) {
     transition(SAVING);
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
-    // add true below to replace existing mode so to skip confirmation screen & go back to SHOW
+    // add true below to replace existing mode, allowing user to skip confirmation screen & go back to SHOW
     .catch(error => transition(ERROR_SAVE, true));
   };
 
@@ -59,8 +60,6 @@ export default function Appointment(props) {
     back(SHOW);
   }
 
-  console.log("props in index: ", props)
-
   return (
   <article className="appointment">
     <Header time={props.time} />
@@ -76,7 +75,7 @@ export default function Appointment(props) {
       {mode === CREATE && (
         <Form 
           interviewers={props.interviewers}
-          onCancel={() => back()}
+          onCancel={back}
           onSave={onSave}
         />
       )}
