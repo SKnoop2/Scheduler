@@ -36,7 +36,8 @@ export default function useApplicationData() {
         const appointment = {...state.appointments[id], interview: {...interview}};
         // copy existing master appointments list and add on new appointment ID
         const appointments = {...state.appointments, [id]: appointment};
-        setState({...state, appointments });
+        // insert new value for days in setState to update number of spots available
+        setState({...state, appointments, days:updatedSpotsArr(state.days, appointments) });
       })
   }
 
@@ -48,7 +49,7 @@ export default function useApplicationData() {
         // replace existing interview with null when deleting
         const appointment = {...state.appointments[id], interview: null};
         const appointments = {...state.appointments, [id]: appointment};
-        setState({...state, appointments})
+        setState({...state, appointments, days:updatedSpotsArr(state.days, appointments)})
       })
   }
 
@@ -72,14 +73,14 @@ export default function useApplicationData() {
     return newArray;
   };
 
-  //starting state
-  console.log("\n*** Initial Days State\n", state.days);
+  // //starting state
+  // console.log("\n*** Initial Days State\n", state.days);
 
-  const days = updatedSpotsArr (state.days, state.appointments);
-  console.log("\n*** Updated Days State\n", days);
+  // const days = updatedSpotsArr (state.days, state.appointments);
+  // console.log("\n*** Updated Days State\n", days);
   
-  // this will remain unchanged
-  console.log("\n*** Final Days State\n", state.days);
+  // // this will remain unchanged
+  // console.log("\n*** Final Days State\n", state.days);
   
   return {
     state, 
