@@ -9,6 +9,7 @@ import { render } from '@testing-library/react';
 import Application from 'components/Application';
 import Appointment from 'components/Appointment';
 
+
 // test that renders a React component
 it("renders without crashing", () => {
   render(<Application />);

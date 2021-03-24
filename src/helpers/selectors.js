@@ -12,7 +12,7 @@ export function getAppointmentsForDay (state, day) {
   const dayAppts = filteredDay.appointments
   // use appt ids to pull out the appt details from the state.appointments
   const appts = dayAppts.map((apptNum) => state.appointments[apptNum])
-  console.log("appointments:", appts)
+  // console.log("appointments:", appts)
   return appts; 
 };
 
@@ -42,7 +42,7 @@ export function getInterviewersforDay (state, day) {
 
   const interviewerIds = filteredDay.interviewers
   const interviewersArr = interviewerIds.map((intId) => state.interviewers[intId])
-  console.log(interviewersArr)
+  // console.log(interviewersArr)
   return interviewersArr
   
 }

@@ -22,7 +22,7 @@ export default function useVisualMode (initial) {
       if (prev.length < 2) {
         return prev;
       }
-      //remove the last item from history
+      //remove the last item from history when history is > 1 item
       return [...prev.slice(0, -1)];
     })
   };

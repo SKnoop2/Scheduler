@@ -14,7 +14,7 @@ function InterviewerList(props) {
         // Stories shows us the preselected item has an id where as initial doesn't, therefor selecting on id
         selected={interviewer.id === props.value} 
         //being passed down to interview list item & no longer need to pass the id down to list item
-        setInterviewer={event => props.setInterviewer(interviewer.id)}
+        setInterviewer={(event) => props.setInterviewer(interviewer.id)}
       />
     );
   });
