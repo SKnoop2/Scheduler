@@ -155,7 +155,8 @@ describe ("Application", ()=>{
 
     expect(getByText(appointment, "SAVING")).toBeInTheDocument(); 
     
-    await waitForElement(() => queryByText(appointment, /could not save your appointment/i)); 
+    await waitForElement(() => getByText(appointment, /could not save your appointment/i)); 
+    
     
     fireEvent.click(getByAltText(appointment, "Close")); 
   });
@@ -180,7 +181,7 @@ describe ("Application", ()=>{
     expect(getByText(appointment, "DELETING")).toBeInTheDocument()
     
     debug(appointment)
-    await waitForElement(() => queryByText(appointment, /Could not delete your appointment/i)); 
+    await waitForElement(() => getByText(appointment, /Could not delete your appointment/i)); 
     
     fireEvent.click(getByAltText(appointment, "Close")); 
   })
