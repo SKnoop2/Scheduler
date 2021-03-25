@@ -14,6 +14,12 @@ This app was set up and tested with PostgreSQL and an api server. To get this on
 |     Jest Test FrameWork    |     ```sh npm test ```      |
 |  Storybook Visual Testbed  | ```sh npm run storybook ``` |
 
+
+ Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
 ## Running Webpack Development Server
 
 ```sh
