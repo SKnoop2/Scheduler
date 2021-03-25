@@ -5,36 +5,12 @@ React application where users can create, edit and delete appointments with inte
 ## Setup
 
 Install dependencies with `npm install`.
-This app was set up and tested with PostgreSQL and an api server. To get this on your system go to this page and follow those instructions.
+This app was set up and tested with PostgreSQL and an api server. To get this api server running on your system go to [this page](https://github.com/SKnoop2/scheduler-api) and follow those instructions.
 
-## Get it all running
-    Description    |    command    
-:-----------------:|:-----------------:
-| Webpack Development Server |     ```sh npm start ```     |
-|     Jest Test FrameWork    |     ```sh npm test ```      |
-|  Storybook Visual Testbed  | ```sh npm run storybook ``` |
-
+## Get everything running
 
   Command |  Description 
 | :---:        |     :---:      |
 | ``` npm start ```    | Running Webpack Development Server    |
 | ``` npm test ```    | Running Jest Test FrameWork       |
 | ``` npm run storybook ```    | Running Storybook Visual Testbed       |
-
-## Running Webpack Development Server
-
-```sh
-npm start
-```
-
-## Running Jest Test Framework
-
-```sh
-npm test
-```
-
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```
