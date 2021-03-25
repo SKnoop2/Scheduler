@@ -8,8 +8,8 @@ Install dependencies with `npm install`.
 This app was set up and tested with PostgreSQL and an api server. To get this on your system go to this page and follow those instructions.
 
 ## Get it all running
-Software | command
----------|--------------------
+    Software    |    command    
+-----------------|-----------------
 Webpack Development Server | ```sh npm start ```
 Jest Test FrameWork | ```sh npm test ```
 Storybook Visual Testbed | ```sh npm run storybook ```
