@@ -7,7 +7,6 @@ export default function InterviewerListItem(props) {
   const interviewClass = classNames ("interviewers__item", {
     "interviewers__item-image": props.image,
     "interviewers__item--selected": props.selected,
-    // "interviewers__item--selected-image": 
   });
 
   const formatSelected = () => (props.selected ? props.name : "")
@@ -23,7 +22,6 @@ export default function InterviewerListItem(props) {
         src={props.avatar}
         alt={props.name}
       />
-      {/* adds the name of the selected person beside their photo, otherwise hides their name */}
       {formatSelected()}
     </li>
   )

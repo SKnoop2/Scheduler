@@ -1,4 +1,3 @@
-import React from "react";
 import { getAppointmentsForDay, getInterview, getInterviewersforDay } from "helpers/selectors";
 
 
