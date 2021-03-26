@@ -13,6 +13,7 @@ export default function useApplicationData() {
   
   const setDay = day => setState({...state, day});
 
+  // get then update data for days, appointments and interviewers
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
@@ -26,6 +27,27 @@ export default function useApplicationData() {
           interviewers: all[2].data}));
       });
   }, []);
+  
+  // count unbooked appointments
+  const availableSpots = function(day, appointments) {
+    let count = 0;
+    for (const id of day.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        count++
+      }
+    }
+    return count;
+  }
+  
+  // show number of available spots in the days array
+  const updatedSpotsArr = (days, appointments) => {
+    const newArray = days.map((day) => ({
+      ...day, 
+      spots: availableSpots(day, appointments) 
+    }))
+    return newArray;
+  };
 
   // update state when booking an appointment
   function bookInterview(id, interview) {
@@ -34,7 +56,7 @@ export default function useApplicationData() {
       .then (() => {
         // copy existing appointment data, and add on supplied interview data
         const appointment = {...state.appointments[id], interview: {...interview}};
-        // copy existing master appointments list and add on new appointment ID
+        // add new appointment ID to existing data
         const appointments = {...state.appointments, [id]: appointment};
         // insert new value for days in setState to update number of spots available
         setState({...state, appointments, days:updatedSpotsArr(state.days, appointments) });
@@ -53,35 +75,6 @@ export default function useApplicationData() {
       })
   }
 
-  // count unbooked appointments
-  const availableSpots = function(day, appointments) {
-    let count = 0;
-    for (const id of day.appointments) {
-      const appointment = appointments[id];
-      if (!appointment.interview) {
-        count++
-      }
-    }
-    return count;
-  }
-
-  const updatedSpotsArr = (days, appointments) => {
-    const newArray = days.map((day) => ({
-      ...day, 
-      spots: availableSpots(day, appointments) 
-    }))
-    return newArray;
-  };
-
-  // //starting state
-  // console.log("\n*** Initial Days State\n", state.days);
-
-  // const days = updatedSpotsArr (state.days, state.appointments);
-  // console.log("\n*** Updated Days State\n", days);
-  
-  // // this will remain unchanged
-  // console.log("\n*** Final Days State\n", state.days);
-  
   return {
     state, 
     setDay, 

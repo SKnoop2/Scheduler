@@ -7,10 +7,9 @@ export default function InterviewerListItem(props) {
   const interviewClass = classNames ("interviewers__item", {
     "interviewers__item-image": props.image,
     "interviewers__item--selected": props.selected,
-    // "interviewers__item--selected-image": 
   });
 
-  const formatSelected = () => (props.selected ? props.name : "")
+  const formatSelected = () => (props.selected ? props.name : "");
 
   return (
 
@@ -18,13 +17,21 @@ export default function InterviewerListItem(props) {
       className={interviewClass}
       onClick={props.setInterviewer}
     >
-      <img
-        className="interviewers__item-image"
-        src={props.avatar}
-        alt={props.name}
-      />
-      {/* adds the name of the selected person beside their photo, otherwise hides their name */}
-      {formatSelected()}
+      <label htmlFor={`Interviewer - ${props.name}`}>
+        <img
+          className="interviewers__item-image"
+          src={props.avatar}
+          alt={props.name}
+        />
+        {formatSelected()}
+      </label>
+      <input 
+      className="interviewers__radio-button"
+      type="radio" 
+      name="interviewer" 
+      required id={`Interviewer - ${props.name}`} 
+      checked={props.selected} 
+      value={props.name}/>
     </li>
   )
 }

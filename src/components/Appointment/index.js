@@ -26,7 +26,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-  // used in form component below, captures name & interviewer to save to database
+  // flow of events that happen upon hiting save button
   function onSave(name, interviewer) {
     const interview = {student: name, interviewer};
 

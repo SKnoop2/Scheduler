@@ -3,11 +3,12 @@ import { useState } from 'react';
 export default function useVisualMode (initial) {
   const [history, setHistory] = useState([initial]);
 
+  // update state when transitioning to new app views
   function transition(newMode, replace = false) {
     
     setHistory((prev) => {
       if (replace === true) {
-        // slice off last item in history, then add newMode
+        // remove last item in history, then add newMode
         return [...prev.slice(0, -1), newMode];
       } 
       //add newMode onto end of history array
@@ -16,6 +17,7 @@ export default function useVisualMode (initial) {
 
   }
 
+  // update state when going back to previous app views
   const back = function() {
 
     setHistory((prev) => {
