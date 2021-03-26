@@ -1,10 +1,17 @@
 # Interview Scheduler
 React application where users can create, edit and delete appointments with interviewers of their choice. This app was created in week 7 & 8 of Lighthouse Labs Web Development Bootcamp to learn develop React and Test Writing skills in both Jest & Cypress.
 
-![Create an appointment by entering your name and selecting an interviewer.](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/book%20interview.png?raw=true)
-![Hover over your appointment for edit and delete appointment options.](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/edit%20appointments.png?raw=true)
-![Confirmation message for users to acknowledge before deleting their appointment to prevent accidental deletions.](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/delete%20appointments.png?raw=true) 
-![Selected day of the week is white, other days turn red when hovering over them.](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/browse%20days.png?raw=true) 
+![Create Appt](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/book%20interview.png?raw=true)
+Create an appointment by entering your name and selecting an interviewer.
+
+![Edit or Delete](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/edit%20appointments.png?raw=true)
+Hover over your appointment for edit and delete appointment options.
+
+![Confirmation message](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/delete%20appointments.png?raw=true) 
+Confirmation message for users to acknowledge before deleting their appointment to prevent accidental deletions.
+
+[Selected Days](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/browse%20days.png?raw=true) 
+Selected day of the week is white, other days turn red when hovering over them.
 
 ## Setup
 
