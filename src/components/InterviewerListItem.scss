@@ -34,4 +34,7 @@
       @include button-active--opacity;
     }
   }
+  &__radio-button {
+    visibility: hidden;
+  }
 }

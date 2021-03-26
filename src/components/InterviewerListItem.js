@@ -9,7 +9,7 @@ export default function InterviewerListItem(props) {
     "interviewers__item--selected": props.selected,
   });
 
-  const formatSelected = () => (props.selected ? props.name : "")
+  const formatSelected = () => (props.selected ? props.name : "");
 
   return (
 
@@ -17,12 +17,21 @@ export default function InterviewerListItem(props) {
       className={interviewClass}
       onClick={props.setInterviewer}
     >
-      <img
-        className="interviewers__item-image"
-        src={props.avatar}
-        alt={props.name}
-      />
-      {formatSelected()}
+      <label htmlFor={`Interviewer - ${props.name}`}>
+        <img
+          className="interviewers__item-image"
+          src={props.avatar}
+          alt={props.name}
+        />
+        {formatSelected()}
+      </label>
+      <input 
+      className="interviewers__radio-button"
+      type="radio" 
+      name="interviewer" 
+      required id={`Interviewer - ${props.name}`} 
+      checked={props.selected} 
+      value={props.name}/>
     </li>
   )
 }
