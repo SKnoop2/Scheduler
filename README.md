@@ -1,5 +1,5 @@
 # Interview Scheduler
-React application where users can create, edit and delete appointments with interviewers of their choice. This app was created in week 7 & 8 of Lighthouse Labs Web Development Bootcamp to learn develop React and Test Writing skills in both Jest & Cypress.
+React application where users can create, edit and delete appointments with interviewers of their choice. This app was created in week 7 & 8 of Lighthouse Labs Web Development Bootcamp to develop React and Test Writing skills in both Jest & Cypress.
 
 ![Create Appt](https://github.com/SKnoop2/Scheduler/blob/master/DOCS/book%20interview.png?raw=true)
 Create an appointment by entering your name and selecting an interviewer.
